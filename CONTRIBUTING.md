@@ -1,0 +1,3 @@
+- Make Issue first
+- Then make Pull request on master branch
+- For good PR, review your code first from previous collabarator.
