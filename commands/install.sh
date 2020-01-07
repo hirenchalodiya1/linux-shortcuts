@@ -1,4 +1,14 @@
-#!bin/bash
+#!/bin/bash
+
+check_folder(){
+    if [[ ! -d $HOME/bin ]]; then
+        mkdir $HOME/bin
+    fi
+    if [[ ! -d $HOME/bin/completions ]]; then
+            mkdir $HOME/bin/completions
+    fi
+}
+check_folder
 
 run_register_extension_files(){
     local F_PATH=(./*/*.register)
