@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 # source all files of $HOME/bin/completion folder for completion purpose
 
 add_additional_files_to_auto_complete()
