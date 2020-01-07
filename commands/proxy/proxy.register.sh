@@ -1,14 +1,5 @@
-#!bin/bash
+#!/bin/bash
 
-check_folder(){
-    if [[ ! -d $HOME/bin ]]; then
-        mkdir $HOME/bin
-    fi
-    if [[ ! -d $HOME/bin/completions ]]; then
-            mkdir $HOME/bin/completions
-    fi
-}
-check_folder
 
 install_command(){
     local CURRENT_DIRECTORY=./proxy

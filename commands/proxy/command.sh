@@ -11,29 +11,29 @@ flag=false
 # host and port settings
 HOST=
 PORT=
-if [ $1 == '' ];
+if [[ $1 == '' ]];
 then
 	help_function
 	exit
 fi
-if [ $1 == '-h' ];
+if [[ $1 == '-h' ]];
 then
 	help_function
-elif [ $1 == '0' ];
+elif [ $1 == 0 ];
 then
 	gsettings set org.gnome.system.proxy mode 'none'
 	echo "New Settings applied (None)"
-elif [ $1 == '1' ];
+elif [ $1 == 1 ];
 then
 	flag=true
 	HOST=10.24.5.215
 	PORT=4000
-elif [ $1 == '2' ];
+elif [ $1 == 2 ];
 then
 	flag=true
 	HOST=172.17.0.10
 	PORT=3128
-elif [ $1 == '3' ];
+elif [ $1 == 3 ];
 then
 	flag=true
 	HOST=172.17.0.12
