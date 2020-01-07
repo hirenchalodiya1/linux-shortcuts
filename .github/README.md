@@ -10,7 +10,7 @@
 ```
 
 ## Additional command
-- To install allcommand run following command
+- To install all command run following command
 ```
     cd <CLONE_DIRECTORY>/commands
     chmod +x install.sh
