@@ -19,6 +19,13 @@ fi
 if [[ $1 == '-h' ]];
 then
 	help_function
+elif [[ $1 == '-s' || $1 == "status" ]];
+then
+	HOST=$(gsettings get org.gnome.system.proxy.http host)
+	PORT="$(gsettings get org.gnome.system.proxy.http port)"
+	MESSAGE="Proxy settings are ${HOST} : ${PORT}"
+	echo $MESSAGE
+	notify-send "${MESSAGE}"
 elif [ $1 == 0 ];
 then
 	gsettings set org.gnome.system.proxy mode 'none'
@@ -51,5 +58,7 @@ then
 	gsettings set org.gnome.system.proxy.https port $PORT
 	#gsettings set org.gnome.system.proxy.ftp host $HOST	
 	#gsettings set org.gnome.system.proxy.ftp port $PORT
-	echo "New Settings applied" $HOST ':' $PORT
+	MESSAGE="New proxy settings applied $HOST : $PORT"
+	echo $MESSAGE
+	notify-send "$MESSAGE"
 fi
