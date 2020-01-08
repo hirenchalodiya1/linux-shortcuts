@@ -1,3 +1,4 @@
+#!/bin/bash
 help_function()
 {
 	echo "Here are options"
