@@ -23,9 +23,16 @@ then
 	exit
 elif [[ $1 == '-s' || $1 == "status" ]];
 then
-	HOST=$(gsettings get org.gnome.system.proxy.http host)
-	PORT="$(gsettings get org.gnome.system.proxy.http port)"
-	MESSAGE="Proxy settings are ${HOST} : ${PORT}"
+	MODE=$(gsettings get org.gnome.system.proxy mode)
+	if [[ $MODE == "'none'" ]];
+	then
+		MESSAGE="No proxy settings applied"
+	elif [[ $MODE == "'manual'" ]];
+	then
+		HOST=$(gsettings get org.gnome.system.proxy.http host)
+		PORT=$(gsettings get org.gnome.system.proxy.http port)
+		MESSAGE="Proxy settings are ${HOST} : ${PORT}"
+	fi
 elif [ $1 == 0 ];
 then
 	gsettings set org.gnome.system.proxy mode 'none'
@@ -62,4 +69,4 @@ then
 fi
 
 echo $MESSAGE
-notify-send "$MESSAGE"
+notify-send "Proxy" "$MESSAGE"
